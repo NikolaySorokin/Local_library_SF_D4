@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Издательства</title>
+</head>
+<body class="container">
+    <h3 class="mb-5">Список книг по издательствам</h3>
+    {% for pub in publishers %}
+    <p class="h5"><strong>Издательство: {{ pub.name|upper }}</strong></p>
+    <ul class="list-group mb-3">
+        {% for book in pub.published_books.all %}
+        <li class="list-group-item">{{ book.author }} "{{ book.title }}" ({{ book.year_release }})</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</body>
+</html>
